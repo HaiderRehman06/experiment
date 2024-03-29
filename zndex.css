@@ -1,0 +1,67 @@
+a{
+    text-decoration: none;
+    margin: 4px;
+    color: rgb(0, 0, 0);
+    margin-top: 10px;
+    margin-bottom: 0px;
+    padding-inline: 15px; 
+}
+h1{
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+div{
+    padding: 20px;
+    background-color: hsl(201, 53%, 58%);
+    display: flex;
+}
+fieldset{
+ border-radius: 10px;
+ border: 3px solid;
+ width: 600px;
+}
+
+.avatars {
+    --avatar-count:10;
+    --avatar-size:50px;
+    --transition-duration: 500ms;
+    --column-size:calc(var(--avatar-size) / 2);
+/* The upper code is a custom written  */
+    display: grid;
+    grid-template-columns:repeat(10, var(--column-size));
+
+    transition: grid-template-columns var(--transition-duration);
+    transition-delay:var(--transition-duration) ;  
+}
+
+.avatars:hover,
+.avatar:focus-within{
+    --column-size:calc(var(--avatar-size) * 1.2);
+    transition-delay: 0ms;
+}
+/* Thr below code can change the borders, border shadows  */
+.avatar{
+    width: var(--avatar-size);
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 100vw;
+    border: 5px solid white;
+    box-shadow: .25rem .25rem .5rem hsl(0 0% 0% / .2);
+
+    transition: var(--transition-duration);
+}
+ /* This below can change the size of the image on which he cursor is */
+.avatar:hover,
+.avatar:focus { 
+        scale:1.8;  
+        z-index: 2;  
+
+}
+/* This can change the size of the image that are on the side  */
+@supports selector(:has(+ *)){
+    .avatar:hover + .avatar, 
+    .avatar:has(+ .avatar:hover){
+        scale: 1.2;
+     
+    }
+}
