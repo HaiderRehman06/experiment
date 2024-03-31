@@ -26,13 +26,13 @@ h2{
     text-shadow: 2px 3px 5px rgba(241, 54, 54, 0.646),-1px -2px 5px ;
     padding-left: 30px;
 }
-
+/* The below CSS is for images  */
 .avatars {
     --avatar-count:10;
     --avatar-size:50px;
     --transition-duration: 500ms;
     --column-size:calc(var(--avatar-size) / 2);
-/* The upper code is a custom written  */
+
     display: grid;
     grid-template-columns:repeat(10, var(--column-size));
 
@@ -45,7 +45,7 @@ h2{
     --column-size:calc(var(--avatar-size) * 1.2);
     transition-delay: 0ms;
 }
-/* Thr below code can change the borders, border shadows  */
+
 .avatar{
     width: var(--avatar-size);
     aspect-ratio: 1;
@@ -56,18 +56,18 @@ h2{
 
     transition: var(--transition-duration);
 }
- /* This below can change the size of the image on which he cursor is */
+
 .avatar:hover,
 .avatar:focus { 
-        scale:1.8;  
+        scale:1.6;  
         z-index: 2;  
 
 }
-/* This can change the size of the image that are on the side  */
+
 @supports selector(:has(+ *)){
     .avatar:hover + .avatar, 
     .avatar:has(+ .avatar:hover){
         scale: 1.2;
-     
+        
     }
 }
